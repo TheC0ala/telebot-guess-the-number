@@ -79,9 +79,10 @@ def probar_numero(numero,solucion):
 	for x in range(1,5):
 		respuesta.append(comprobar(numero,x,solucion))
 	respuesta.sort()
+	respuesta = "".join(respuesta)
 	if respuesta == "CCCC":
 		respuesta = "fin"
-	return  "".join(respuesta)
+	return  respuesta
 	
 def comprobar(numero,posicion,solucion):	
 	if get_numero_posicion(numero,posicion) == get_numero_posicion(solucion,posicion):
