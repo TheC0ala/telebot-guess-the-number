@@ -48,6 +48,8 @@ def help(update, context):
 
 def echo(update, context):
 	"""Echo the user message."""
+	if 'jugando' not in context.user_data:
+		context.user_data['jugando'] = False
 	if not context.user_data['jugando']:
 		update.message.reply_text("Tienes que empezar una nueva partida. Reinicia el juego con /start")
 		return
@@ -61,6 +63,7 @@ def echo(update, context):
 	if respuesta == "fin":
 		context.user_data['jugando'] = False
 		update.message.reply_text("Enhorabuena campeón! Ahora vas y se lo cuentas a alguien.")		
+		return
 	else: 
 		update.message.reply_text(respuesta)
 	context.user_data['intentos'] = context.user_data['intentos']-1
