@@ -117,7 +117,7 @@ def main():
 	# Make sure to set use_context=True to use the new context based callbacks
 	# Post version 12 this will no longer be necessary
 	import telekey
-	updater = Updater(telekey.telekey, use_context=True)
+	updater = Updater(token="1608077771:AAE2-7ivipJW9Cc2cLFTcQW0Cns-AqOwNY8", use_context=True)
 
 	# Get the dispatcher to register handlers
 	dp = updater.dispatcher
