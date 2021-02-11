@@ -89,11 +89,11 @@ def probar_numero(numero,solucion):
 	
 def comprobar(numero,posicion,solucion):	
 	if get_numero_posicion(numero,posicion) == get_numero_posicion(solucion,posicion):
-		return ("✔️")
+		return ("✅")
 	elif get_numero_posicion(numero,posicion) in solucion:
 		return ("🔄")
 	else:
-		return("❎")
+		return("❌")
 	
 def get_numero_posicion(numero,posicion):
 	if posicion == 1:
