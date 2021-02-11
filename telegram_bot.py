@@ -31,18 +31,18 @@ logger = logging.getLogger(__name__)
 def start(update, context):
 	"""Send a message when the command /start is issued."""
 	context.user_data['objetivo_str'] = str(random.randrange(1000, 9999, 1))
-	context.user_data['intentos'] = 8
-	update.message.reply_text('Que comience el juego!')
+	context.user_data['intentos'] = 9
+	update.message.reply_text('Oyun Başlasın!!')
 	context.user_data['jugando'] = True
 	
 def stop(update,context):
 	context.user_data['jugando'] = False
-	update.message.reply_text("El juego se ha detenido. Loser.")
+	update.message.reply_text("Oyun dayandırıldı.")
 	
 
 def help(update, context):
 	"""Send a message when the command /help is issued."""
-	update.message.reply_text('El juego consiste en adivinar un número de 4 cifras, del 1000 al 9999 en un máximo de 8 intentos. Te responderé con (C = una cifra existe y está en su sitio, v = una cifra existe, x = una cifra no pertenece a la solución)')
+	update.message.reply_text('Oyun çətin görsənə bilər amma əslində asandı. Deməli bot təsafüdi oladaq 1000 ilə 9999 arasında bir rəqəm tutur. (C = hansıda rəqəm botun tutduğu sayda var və öz yerindədir, v = hansısa rəqəm botun tutduğu sayda var amma yerində deyil, x = bu rəqəm botun tutduğu sayda yoxdur)')
 	update.message.reply_text('Si por ejemplo tienes que adivinar 5412 y escribes 4702 te responderé Cvxx. C por el 2, v por el 4, y xx por el 7 y el 0.')
 
 
@@ -51,13 +51,13 @@ def echo(update, context):
 	if 'jugando' not in context.user_data:
 		context.user_data['jugando'] = False
 	if not context.user_data['jugando']:
-		update.message.reply_text("Tienes que empezar una nueva partida. Reinicia el juego con /start")
+		update.message.reply_text("Yeni bir oyuna başlamalısan. /start yazaraq başlaya bilərsən.")
 		return
 	if context.user_data['intentos'] < 1:
-		update.message.reply_text("Qué vergüenza, no te quedan intentos... reinicia el juego con /start")
+		update.message.reply_text("Offf... Təsüfki rəqəmi tapa bilmədin. /start yazaraq yenidən cəhd et 📌")
 		return
 	if len(update.message.text) is not 4:
-		update.message.reply_text("Error, debe tener 4 caracteres.")
+		update.message.reply_text("Xəta! Yazdığınız say ən az 4 rəqəmli olmalıdır.")
 		return
 	respuesta = probar_numero(update.message.text,context.user_data['objetivo_str'])
 	if respuesta == "fin":
@@ -67,7 +67,7 @@ def echo(update, context):
 	else: 
 		update.message.reply_text(respuesta)
 	context.user_data['intentos'] = context.user_data['intentos']-1
-	update.message.reply_text("Te quedan "+str(context.user_data['intentos'])+" intentos.")
+	update.message.reply_text("Hey! "+str(context.user_data['intentos'])+" şansınız qaldı.")
 	
 
 
@@ -89,11 +89,11 @@ def probar_numero(numero,solucion):
 	
 def comprobar(numero,posicion,solucion):	
 	if get_numero_posicion(numero,posicion) == get_numero_posicion(solucion,posicion):
-		return ("C")
+		return ("✔️")
 	elif get_numero_posicion(numero,posicion) in solucion:
-		return ("v")
+		return ("🔄")
 	else:
-		return("x")
+		return("❎")
 	
 def get_numero_posicion(numero,posicion):
 	if posicion == 1:
