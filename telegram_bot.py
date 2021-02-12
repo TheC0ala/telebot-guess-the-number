@@ -42,7 +42,7 @@ def stop(update,context):
 
 def help(update, context):
 	"""Send a message when the command /help is issued."""
-	update.message.reply_text('Oyun çətin görsənə bilər amma əslində asandı. Deməli bot təsafüdi oladaq 1000 ilə 9999 arasında bir rəqəm tutur. (✅ = hansıda rəqəm botun tutduğu sayda var və öz yerindədir,  ♻️ = hansısa rəqəm botun tutduğu sayda var amma yerində deyil, ❌ = bu rəqəm botun tutduğu sayda yoxdur)')
+	update.message.reply_text('Oyun çətin görsənə bilər amma əslində asandı. Deməli bot təsafüdi olaraq 1000 ilə 9999 arasında bir rəqəm tutur. (✅ = hansıda rəqəm botun tutduğu sayda var və öz yerindədir,  ♻️ = hansısa rəqəm botun tutduğu sayda var amma yerində deyil, ❌ = bu rəqəm botun tutduğu sayda yoxdur)')
 	update.message.reply_text('Məsələn Bot 7389 sayını tutub və sizdə 7534 yazmısız. Botun cavabı belə olacaq: ✅❌♻️❌ ')
 
 
