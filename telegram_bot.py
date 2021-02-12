@@ -31,7 +31,7 @@ logger = logging.getLogger(__name__)
 def start(update, context):
 	"""Send a message when the command /start is issued."""
 	context.user_data['objetivo_str'] = str(random.randrange(1000, 9999, 1))
-	context.user_data['intentos'] = 9
+	context.user_data['intentos'] = 10
 	update.message.reply_text('Oyun Başlasın!!')
 	context.user_data['jugando'] = True
 	
